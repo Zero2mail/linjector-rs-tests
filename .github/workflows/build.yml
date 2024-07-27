@@ -39,9 +39,15 @@ jobs:
           sha256sum linjector-cli >> hashes.txt
           echo '```' >> hashes.txt
 
+      - name: upload artifacts
+        uses: actions/upload-artifact@v2
+        with: 
+          name: build
+          path: ./linjector-cli
+
       - name: release
         uses: softprops/action-gh-release@v1
-#        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v')
         with:
           body_path: hashes.txt
           files: |
