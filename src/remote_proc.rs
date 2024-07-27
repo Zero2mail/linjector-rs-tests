@@ -21,11 +21,11 @@ impl RemoteProc {
         let maps = self.maps()?;
         let mut maps_by_name: Vec<MapRange> = Vec::new();
         for map in maps {
-            match map.filename() {
+            match map.clone().filename() {
                 None => continue,
                 Some(filename) => {
                     if filename.ends_with(name) {
-                        maps_by_name.push(map);
+                        maps_by_name.push(map.clone());
                         info!("{:?} {:#02X}-{:#02X}", filename, map.start(), map.size() + map.start())
                     }
                 }
