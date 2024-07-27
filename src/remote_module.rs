@@ -27,6 +27,7 @@ impl RemoteModule {
 
         if result.is_some() {
             let offset = result.unwrap().st_value as usize;
+            info!("offset of {}, {:#02X}", symbol_name, offset);
             return Ok(offset + self.vm_addr);
         }
 
