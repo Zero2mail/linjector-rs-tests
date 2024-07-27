@@ -26,7 +26,7 @@ impl RemoteProc {
                 Some(filename) => {
                     if filename.ends_with(name) {
                         maps_by_name.push(map);
-                        info!("{} {:#02X}-{:#02X}", filename, map.start(), map.end())
+                        info!("{} {:#02X}-{:#02X}", filename.display(), map.start(), map.size() + map.start())
                     }
                 }
             }
