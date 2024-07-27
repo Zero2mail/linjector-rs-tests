@@ -26,7 +26,7 @@ jobs:
         run: rustup target add aarch64-linux-android
 
       - name: build
-        run: cargo ndk --target aarch64-linux-android build --release
+        run: cargo ndk --target aarch64-linux-android build
 
       - name: move files
         run: |
